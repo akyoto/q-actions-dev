@@ -32,3 +32,4 @@ jobs:
           codesign --display --verbose=4 ./examples/hello/hello
           dyld_info ./examples/hello/hello
           ./examples/hello/hello
+          dmesg | tail -20

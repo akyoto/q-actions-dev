@@ -31,6 +31,5 @@ jobs:
           ./q build examples/hello
           codesign --display --verbose=4 ./examples/hello/hello
           dyld_info ./examples/hello/hello
-          xattr -d com.apple.quarantine ./examples/hello/hello
           ./examples/hello/hello
           dmesg | tail -20

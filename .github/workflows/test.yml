@@ -32,5 +32,6 @@ jobs:
           codesign --display --verbose=4 ./examples/hello/hello
           dyld_info ./examples/hello/hello
           xattr ./examples/hello/hello
+          codesign --sign - --force --preserve-metadata=entitlements,requirements,flags,runtime ./examples/hello/hello
           ./examples/hello/hello
           dmesg | tail -20

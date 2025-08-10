@@ -30,6 +30,7 @@ jobs:
           go build
           ./q build examples/hello
           file ./examples/hello/hello
+          otool -hl ./examples/hello/hello
           codesign --display --verbose=4 ./examples/hello/hello
           dyld_info ./examples/hello/hello
           xattr ./examples/hello/hello

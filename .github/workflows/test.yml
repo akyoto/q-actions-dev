@@ -29,7 +29,7 @@ jobs:
           cd q
           go build
           ./q build examples/hello
-          ./examples/hello/hello
-          dyld_info ./examples/hello/hello
           codesign --display --verbose=4 ./examples/hello/hello
+          dyld_info ./examples/hello/hello
+          ./examples/hello/hello
         shell: bash

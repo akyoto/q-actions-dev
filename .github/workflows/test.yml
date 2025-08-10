@@ -30,6 +30,8 @@ jobs:
           go build
           ./q build examples/hello
           codesign --display --verbose=4 ./examples/hello/hello
+          uname -a
+          strings $(which dyld_info)
           dyld_info ./examples/hello/hello
           ./examples/hello/hello
         shell: bash

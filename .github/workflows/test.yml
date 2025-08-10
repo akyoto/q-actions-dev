@@ -25,5 +25,9 @@ jobs:
       - name: Run tests
         run: |
           go version
-          go test ./...
+          git clone https://git.urbach.dev/cli/q.git --branch dev --single-branch
+          cd q
+          go build
+          ./q build examples/hello
+          ./examples/hello/hello
         shell: bash

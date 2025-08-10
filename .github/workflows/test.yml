@@ -32,4 +32,5 @@ jobs:
           go build
           ./q build examples/hello
           codesign --display --verbose=4 ./examples/hello/hello
+          dyld_info ./examples/hello/hello
           ./examples/hello/hello

@@ -35,4 +35,4 @@ jobs:
           dyld_info ./examples/hello/hello
           xattr ./examples/hello/hello
           ./examples/hello/hello
-          dmesg | tail -20
+          go test ./...

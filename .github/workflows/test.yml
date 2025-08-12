@@ -8,12 +8,12 @@ on:
     branches: [ main ]
 
 jobs:
-  check:
+  mac:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, ubuntu-24.04-arm, windows-latest, windows-11-arm, macos-13, macos-latest]
+        os: [macos-13, macos-latest]
     steps:
       - name: Setup Go environment
         uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # pin@v5
@@ -35,4 +35,25 @@ jobs:
           dyld_info ./examples/hello/hello
           xattr ./examples/hello/hello
           ./examples/hello/hello
+          go test ./...
+  windows:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, windows-11-arm]
+    steps:
+      - name: Setup Go environment
+        uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # pin@v5
+        with:
+          go-version: '1.24'
+          check-latest: true
+      - name: Run tests
+        run: |
+          go version
+          git clone https://git.urbach.dev/cli/q.git --branch dev --single-branch
+          cd q
+          go build
+          ./q build examples/hello
+          ./examples/hello/hello.exe
           go test ./...

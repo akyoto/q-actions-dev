@@ -35,6 +35,8 @@ jobs:
           dyld_info ./examples/hello/hello
           xattr ./examples/hello/hello
           ./examples/hello/hello
+          ./q build tests/cli-args.q
+		  ./tests/cli-args 123 456
           go test ./...
   windows:
     runs-on: ${{ matrix.os }}
